@@ -108,6 +108,13 @@ const fetch = () => {
 
   return (
     <div style={{marginTop:"100px"}}>
+     <Link to={"/register"}>
+     <Box textAlign={"right"} colorScheme={"blue"} mr={5}>
+      <Button>Register Astro</Button>
+
+      </Box>
+     </Link>
+    
       <TableContainer>
         <Table size='sm'>
           <TableCaption>List of Astrologers</TableCaption>

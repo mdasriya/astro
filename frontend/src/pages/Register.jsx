@@ -3,6 +3,7 @@ import { Box, Button, FormControl, FormLabel, Input, Select } from "@chakra-ui/r
 import { UploadButton } from "@bytescale/upload-widget-react";
 import axios from "axios"
 import { useToast } from '@chakra-ui/react'
+import { useNavigate } from "react-router-dom";
 const initForm = {
   name: "",
   gender: "",
@@ -16,6 +17,7 @@ const Register = () => {
   const [formData, setFormData] = useState(initForm);
   const [image, setImage] = useState("");
   const toast = useToast()
+  const navigate = useNavigate()
 
   const options = {
     apiKey: "public_W142ibG53EuiVnmepYM6iYmqTRg5",
@@ -49,7 +51,7 @@ const Register = () => {
 
   const handleImageChange = (fileUrl) => {
     setFormData({
-      ...editData,
+      ...formData,
       profileImageUrl: fileUrl
     });
   };
@@ -66,6 +68,7 @@ const Register = () => {
         duration: 3000,
         isClosable: true,
       })
+      navigate("/")
       setFormData(initForm)
     })
     .catch((error)=> {
